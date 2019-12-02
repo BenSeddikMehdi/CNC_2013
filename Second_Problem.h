@@ -14,12 +14,12 @@
 
 #define Nb 12
 #define Max 10
-typedef struct {
+typedef struct point{
     int x;
     int y;
-}point;
+} point_t;
 
-point C[Max];
+point_t C[Max];
 
 /* Question A-1 */
 /****************/
@@ -31,7 +31,7 @@ void initializeC() {
 
 /* Question A-2 */
 /****************/
-void horizontalPath(point A, point B) {// A(2,5) B(3,4) => C[0] = P(2,5), C[1] = P(3,5), C[2] = P(3,4)
+void horizontalPath(point_t A, point_t B) {// A(2,5) B(3,4) => C[0] = P(2,5), C[1] = P(3,5), C[2] = P(3,4)
     int n = (A.x - B.x), m = 0;
     int i = 0;
     C[0] = A;
@@ -73,9 +73,9 @@ void horizontalPath(point A, point B) {// A(2,5) B(3,4) => C[0] = P(2,5), C[1] =
 
 /* Question A-3-a */
 /****************/
-point A = {2,6}, B = {4,3};
+point_t A = {2, 6}, B = {4, 3};
 #define Nc 1
-point tabC[Nc][Max];
+point_t tabC[Nc][Max];
 int distance(int num) {
     for (int j = 0; j < Nc; ++j) {
         horizontalPath(A,B);
@@ -104,7 +104,7 @@ int minimumDistance() {
 /***********************************************/
 
 typedef struct pathType {
-    point p;
+    point_t p;
     struct pathType *next;
 } pathList;
 
