@@ -111,7 +111,7 @@ typedef struct pathType {
 /* Question B-1 */
 /****************/
 pathList *AtoB() {
-    pathList *pPathList;
+    horizontalPath(A,B);
 
 }
 #endif //CNC_2013_SECOND_PROBLEM_H
