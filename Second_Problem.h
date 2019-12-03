@@ -111,10 +111,13 @@ typedef struct pathType {
 /* Question B-1 */
 /****************/
 point_t A = {2, 6}, B = {4, 3};
-pathList_t *AtoB() {
-    pathList_t pElement= {C[0], NULL}, *firstElement;
+pathList_t* AtoB() {
     horizontalPath(A,B);
+    pathList_t pElement = {C[0], NULL}, *firstElement = NULL, temp;
     firstElement = &pElement;
+    for (int i = 1; i < Max-1; ++i) {
+
+    }
     return firstElement;
 }
 
