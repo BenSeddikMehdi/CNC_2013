@@ -108,8 +108,9 @@ typedef struct pathType {
     struct pathType *next;
 } pathList_t;
 
-/* Question B-1 */
+/* Question B-1-a*/
 /****************/
+point_t A = {2, 6}, B = {4, 3};
 pathList_t* newNode(int8_t i) {
     pathList_t* temp = malloc(sizeof(pathList_t));
     temp->p.x = C[i].x;
@@ -120,21 +121,28 @@ pathList_t* newNode(int8_t i) {
 void push(pathList_t** pList, int8_t i) {
     if ((*pList) == NULL) {
         pathList_t* temp = newNode(i);
-
         temp->next = (*pList);
-
         (*pList) = temp;
     } else
         push(&(*pList)->next, i);
 }
-
-point_t A = {2, 6}, B = {4, 3};
-
 pathList_t* AtoB() {
     horizontalPath(A,B);
     pathList_t* firstElement = NULL;
-    for (int8_t i = 0; i < Max; ++i) {
+    for (int8_t i = 0; C[i].x != -1; ++i) {
         push(&firstElement, i);
+    }
+    return firstElement;
+}
+
+/* Question B-1-a*/
+/****************/
+pathList_t* BtoA() {
+    horizontalPath(A,B);
+    pathList_t* firstElement = NULL;
+    int8_t n = abs(A.x-B.x) + abs(A.y-B.y);
+    for (int8_t i = 0; i < n; ++i) {
+        push(&firstElement, n-i);
     }
     return firstElement;
 }
