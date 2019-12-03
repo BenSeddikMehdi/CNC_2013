@@ -3,9 +3,8 @@
 #include "Second_Problem.h"
 
 int main() {
-    pathList_t* temp = NULL;
+    pathList_t* temp = NULL;// 7d13f0
     temp = AtoB();
-    printf("the address of the first element = %x", (unsigned) temp);
-    
+    free(temp);
     return 0;
 }

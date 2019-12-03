@@ -117,24 +117,24 @@ pathList_t* newNode(int8_t i) {
     temp->next = NULL;
     return temp;
 }
-void push(pathList_t* pList, int8_t i) {
-    if (pList == NULL) {
+void push(pathList_t** pList, int8_t i) {
+    if ((*pList) == NULL) {
         pathList_t* temp = newNode(i);
 
-        temp->next = pList;
+        temp->next = (*pList);
 
-        pList = temp;
+        (*pList) = temp;
     } else
-        push(pList->next, i);
+        push(&(*pList)->next, i);
 }
 
 point_t A = {2, 6}, B = {4, 3};
 
 pathList_t* AtoB() {
     horizontalPath(A,B);
-    pathList_t *firstElement = NULL;
+    pathList_t* firstElement = NULL;
     for (int8_t i = 0; i < Max; ++i) {
-        push(firstElement, i);
+        push(&firstElement, i);
     }
     return firstElement;
 }
