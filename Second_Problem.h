@@ -5,13 +5,13 @@
 #ifndef CNC_2013_SECOND_PROBLEM_H
 #define CNC_2013_SECOND_PROBLEM_H
 
-/**************************************************/
-/* A : Itinerary Construction using tables/arrays */
-/**************************************************/
-
 #include <math.h>
 #include <stdlib.h>
 #include <stdint.h>
+
+/**************************************************/
+/* A : Itinerary Construction using tables/arrays */
+/**************************************************/
 
 #define Nb 12
 #define Max 10
@@ -74,7 +74,6 @@ void horizontalPath(point_t A, point_t B) {// A(2,5) B(3,4) => C[0] = P(2,5), C[
 
 /* Question A-3-a */
 /****************/
-point_t A = {2, 6}, B = {4, 3};
 #define Nc 4
 point_t tabC[Nc][Max] =
 {2,6, 2,5, 2,4, 2,3, 3,3, 3,4, 4,4, 4,3, -1,-1, -1,-1,
@@ -100,19 +99,25 @@ int8_t minimumDistance() {
     return min;
 }
 
-/***********************************************/
-/* B : Itinerary Construction using LinkedList */
-/***********************************************/
+/**************************************************/
+/* B : Itineraries Construction using Linked List */
+/**************************************************/
 
 typedef struct pathType {
     point_t p;
     struct pathType *next;
-} pathList;
+} pathList_t;
 
 /* Question B-1 */
 /****************/
-pathList *AtoB() {
+point_t A = {2, 6}, B = {4, 3};
+pathList_t *AtoB() {
+    pathList_t pElement= {C[0], NULL}, *firstElement;
     horizontalPath(A,B);
+    firstElement = &pElement;
+
+
     return NULL;
 }
+
 #endif //CNC_2013_SECOND_PROBLEM_H
