@@ -108,7 +108,7 @@ typedef struct pathType {
     struct pathType *next;
 } pathList_t;
 
-/* Question B-1-a*/
+/* Question B-1-a */
 /****************/
 point_t A = {2, 6}, B = {4, 3};
 pathList_t* newNode(int8_t i) {
@@ -135,7 +135,7 @@ pathList_t* AtoB() {
     return firstElement;
 }
 
-/* Question B-1-a*/
+/* Question B-1-b */
 /****************/
 pathList_t* BtoA() {
     horizontalPath(A,B);
@@ -147,7 +147,7 @@ pathList_t* BtoA() {
     return firstElement;
 }
 
-/* Question B-2*/
+/* Question B-2 */
 /****************/
 void printPath(pathList_t* pList) {
     printf("\npList = ");
@@ -155,6 +155,13 @@ void printPath(pathList_t* pList) {
         printf("P(%d, %d) ", pList->p.x, pList->p.y);
         pList = pList->next;
     }
+}
+
+/* Question B-3 */
+/****************/
+pathList_t* landmarkPath(point_t AA,point_t BB, point_t R){
+    horizontalPath()
+    return NULL;
 }
 
 
