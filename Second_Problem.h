@@ -66,7 +66,7 @@ void horizontalPath(point_t A, point_t B) {// A(2,5) B(3,4) => C[0] = P(2,5), C[
             C[j].y = C[j-1].y - 1;
         }
     }
-    n = (int8_t) fabs(A.x - B.x), m = (int8_t) fabs(A.y - B.y);
+    n = (int8_t) abs(A.x - B.x), m = (int8_t) abs(A.y - B.y);
     for (int8_t k = n+m+1; k < Max; ++k) {
         C[k].x = C[k].y = -1;
     }
@@ -75,24 +75,20 @@ void horizontalPath(point_t A, point_t B) {// A(2,5) B(3,4) => C[0] = P(2,5), C[
 /* Question A-3-a */
 /****************/
 point_t A = {2, 6}, B = {4, 3};
-#define Nc 1
-point_t tabC[Nc][Max];
+#define Nc 4
+point_t tabC[Nc][Max] =
+{2,6, 2,5, 2,4, 2,3, 3,3, 3,4, 4,4, 4,3, -1,-1, -1,-1,
+ 2,6, 3,6, 4,6, 4,5, 4,6, 5,6, 5,5, 5,4, 5,3, 4,3,
+ 2,6, 2,5, 3,5, 4,5, 4,4, 4,3, -1,-1, -1,-1, -1,-1, -1,-1,
+ 2,6, 2,5, 3,5, 4,5, 5,5, 5,4, 4, 4,  4,3, -1,-1, -1,-1};
 
-void fillTabC(point_t c_tab[Nc][Max]) {
-    point_t anotherArray[Nc][2];
-}
 
 int8_t distance(int8_t num) {
-    for (int8_t j = 0; j < Nc; ++j) {
-        horizontalPath(A,B);
-        for (int8_t i = 0; i < Max; ++i) {
-            tabC[j][i] = C[i];
-        }
-    }
     for (int8_t i = 0; i < Max; ++i) {
         if (tabC[num-1][i].x == -1)
             return i-1;
     }
+    return Max-1;
 }
 
 /* Question A-3-b */
