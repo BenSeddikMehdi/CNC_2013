@@ -141,10 +141,22 @@ pathList_t* BtoA() {
     horizontalPath(A,B);
     pathList_t* firstElement = NULL;
     int8_t n = abs(A.x-B.x) + abs(A.y-B.y);
-    for (int8_t i = 0; i < n; ++i) {
+    for (int8_t i = 0; i < n + 1; ++i) {
         push(&firstElement, n-i);
     }
     return firstElement;
 }
+
+/* Question B-2*/
+/****************/
+void printPath(pathList_t* pList) {
+    printf("\npList = ");
+    while (pList != NULL) {
+        printf("P(%d, %d) ", pList->p.x, pList->p.y);
+        pList = pList->next;
+    }
+}
+
+
 
 #endif //CNC_2013_SECOND_PROBLEM_H
