@@ -75,29 +75,29 @@ void horizontalPath(point_t A, point_t B) {// A(2,5) B(3,4) => C[0] = P(2,5), C[
 /* Question A-3-a */
 /****************/
 #define Nc 4
-point_t tabC[Nc][Max] =
+/*point_t tabC[Nc][Max] =
 {2,6, 2,5, 2,4, 2,3, 3,3, 3,4, 4,4, 4,3, -1,-1, -1,-1,
  2,6, 3,6, 4,6, 4,5, 4,6, 5,6, 5,5, 5,4, 5,3, 4,3,
  2,6, 2,5, 3,5, 4,5, 4,4, 4,3, -1,-1, -1,-1, -1,-1, -1,-1,
- 2,6, 2,5, 3,5, 4,5, 5,5, 5,4, 4, 4,  4,3, -1,-1, -1,-1};
+ 2,6, 2,5, 3,5, 4,5, 5,5, 5,4, 4, 4,  4,3, -1,-1, -1,-1};*/
 
-int8_t distance(int8_t num) {
+/*int8_t distance(int8_t num) {
     for (int8_t i = 0; i < Max; ++i) {
         if (tabC[num-1][i].x == -1)
             return i-1;
     }
     return Max-1;
-}
+}*/
 
 /* Question A-3-b */
 /****************/
-int8_t minimumDistance() {
+/*int8_t minimumDistance() {
     int8_t min = distance(0);
     for (int8_t i = 1; i < Nc; ++i) {
         if (distance(i) < min) min = distance(i);
     }
     return min;
-}
+}*/
 
 /**************************************************/
 /* B : Itineraries Construction using Linked List */
@@ -110,13 +110,31 @@ typedef struct pathType {
 
 /* Question B-1 */
 /****************/
+pathList_t* newNode(int8_t i) {
+    pathList_t* temp = malloc(sizeof(pathList_t));
+    temp->p.x = C[i].x;
+    temp->p.y = C[i].y;
+    temp->next = NULL;
+    return temp;
+}
+void push(pathList_t* pList, int8_t i) {
+    if (pList == NULL) {
+        pathList_t* temp = newNode(i);
+
+        temp->next = pList;
+
+        pList = temp;
+    } else
+        push(pList->next, i);
+}
+
 point_t A = {2, 6}, B = {4, 3};
+
 pathList_t* AtoB() {
     horizontalPath(A,B);
-    pathList_t pElement = {C[0], NULL}, *firstElement = NULL, temp;
-    firstElement = &pElement;
-    for (int i = 1; i < Max-1; ++i) {
-
+    pathList_t *firstElement = NULL;
+    for (int8_t i = 0; i < Max; ++i) {
+        push(firstElement, i);
     }
     return firstElement;
 }
