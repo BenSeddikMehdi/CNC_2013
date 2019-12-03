@@ -8,6 +8,6 @@ int main() {
     for (int i = 0; i < Max; ++i) {
         printf("C[%d] = P(%d,%d)\n", i, C[i].x, C[i].y);
     }*/
-    printf("distance = %d\n", distance(3));
+    printf("Minimum distance = %d\n", minimumDistance());
     return 0;
 }

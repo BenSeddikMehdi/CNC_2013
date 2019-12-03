@@ -82,7 +82,6 @@ point_t tabC[Nc][Max] =
  2,6, 2,5, 3,5, 4,5, 4,4, 4,3, -1,-1, -1,-1, -1,-1, -1,-1,
  2,6, 2,5, 3,5, 4,5, 5,5, 5,4, 4, 4,  4,3, -1,-1, -1,-1};
 
-
 int8_t distance(int8_t num) {
     for (int8_t i = 0; i < Max; ++i) {
         if (tabC[num-1][i].x == -1)
@@ -94,8 +93,8 @@ int8_t distance(int8_t num) {
 /* Question A-3-b */
 /****************/
 int8_t minimumDistance() {
-    int8_t min = 1;
-    for (int8_t i = 0; i < Nc; ++i) {
+    int8_t min = distance(0);
+    for (int8_t i = 1; i < Nc; ++i) {
         if (distance(i) < min) min = distance(i);
     }
     return min;
