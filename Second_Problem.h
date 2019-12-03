@@ -115,9 +115,7 @@ pathList_t *AtoB() {
     pathList_t pElement= {C[0], NULL}, *firstElement;
     horizontalPath(A,B);
     firstElement = &pElement;
-
-
-    return NULL;
+    return firstElement;
 }
 
 #endif //CNC_2013_SECOND_PROBLEM_H
