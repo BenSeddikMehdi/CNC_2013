@@ -160,8 +160,20 @@ void printPath(pathList_t* pList) {
 /* Question B-3 */
 /****************/
 pathList_t* landmarkPath(point_t AA,point_t BB, point_t R){
-    horizontalPath()
-    return NULL;
+    initializeC();
+    horizontalPath(AA, R);
+    pathList_t* firstElement = NULL;
+    int8_t n = abs(AA.x-R.x) + abs(AA.y-R.y);
+    for (int8_t i = 0; i < n + 1; ++i) {
+        push(&firstElement, i);
+    }
+    initializeC();
+    horizontalPath(R, BB);
+    n = abs(BB.x-R.x) + abs(BB.y-R.y);
+    for (int8_t i = 0; i < n + 1; ++i) {
+        push(&firstElement, i);
+    }
+    return firstElement;
 }
 
 
