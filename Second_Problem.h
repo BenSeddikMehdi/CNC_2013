@@ -77,6 +77,11 @@ void horizontalPath(point_t A, point_t B) {// A(2,5) B(3,4) => C[0] = P(2,5), C[
 point_t A = {2, 6}, B = {4, 3};
 #define Nc 1
 point_t tabC[Nc][Max];
+
+void fillTabC(point_t c_tab[Nc][Max]) {
+    point_t anotherArray[Nc][2];
+}
+
 int8_t distance(int8_t num) {
     for (int8_t j = 0; j < Nc; ++j) {
         horizontalPath(A,B);
