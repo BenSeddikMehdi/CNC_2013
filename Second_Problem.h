@@ -159,7 +159,7 @@ void printPath(pathList_t* pList) {
 
 /* Question B-3 */
 /****************/
-pathList_t* landmarkPath(point_t AA,point_t BB, point_t R){
+pathList_t* landmarkPath(point_t AA, point_t BB, point_t R){
     initializeC();
     horizontalPath(AA, R);
     pathList_t* firstElement = NULL;
@@ -175,7 +175,5 @@ pathList_t* landmarkPath(point_t AA,point_t BB, point_t R){
     }
     return firstElement;
 }
-
-
 
 #endif //CNC_2013_SECOND_PROBLEM_H
