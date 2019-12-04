@@ -150,11 +150,12 @@ pathList_t* BtoA() {
 /* Question B-2 */
 /****************/
 void printPath(pathList_t* pList) {
-    printf("\npList = ");
+    printf("pList = ");
     while (pList != NULL) {
         printf("P(%d, %d) ", pList->p.x, pList->p.y);
         pList = pList->next;
     }
+    printf("\n");
 }
 
 /* Question B-3 */
@@ -170,7 +171,7 @@ pathList_t* landmarkPath(point_t AA, point_t BB, point_t R){
     initializeC();
     horizontalPath(R, BB);
     n = abs(BB.x-R.x) + abs(BB.y-R.y);
-    for (int8_t i = 0; i < n + 1; ++i) {
+    for (int8_t i = 1; i < n + 1; ++i) {
         push(&firstElement, i);
     }
     return firstElement;
